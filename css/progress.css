@@ -1,0 +1,160 @@
+/* -----------------------------------------------------
+ Pure CSS Progress Bars
+  GitHub Project: https://github.com/rkchauhan/pure-css-progress-bars/
+ By: Ravikumar Chauhan
+  Find me on -
+ Twitter: https://twitter.com/rkchauhan01
+  Facebook: https://www.facebook.com/ravi032chauhan
+  GitHub: https://github.com/rkchauhan
+  CodePen: https://codepen.io/rkchauhan
+-------------------------------------------------------- */
+
+/* -----------------------------------------------------
+ CSS Progress Bars
+-------------------------------------------------------- */
+.cssProgress {
+  width: 100%;
+  margin-bottom: 20px;
+}
+.cssProgress .progress-medium {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  font-family: "Roboto", sans-serif;
+}
+.cssProgress .cssProgress-bar {
+  display: block;
+  float: left;
+  width: 0%;
+  height: 100%;
+  background: #3798d9;
+  box-shadow: inset 0px -1px 2px rgba(0, 0, 0, 0.1);
+  transition: width 0.4s ease-in-out;
+}
+.cssProgress .cssProgress-label {
+  position: absolute;
+  overflow: hidden;
+  left: 0px;
+  right: 0px;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.7em;
+  text-align: center;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.3);
+}
+.cssProgress .cssProgress-active {
+  background-color: #2798d9 !important;
+}
+.cssProgress .cssProgress-paused {
+  background-color: #9575cd !important;
+}
+.cssProgress .cssProgress-notstarted {
+  background-color: #9575cd !important;
+}
+.cssProgress .cssProgress-error {
+  background-color: #ef5350 !important;
+}
+.cssProgress .cssProgress-done {
+  background-color: #66bb6a !important;
+}
+.cssProgress .cssProgress-retryactive {
+  background-color: #ffb74d !important;
+}
+
+/* -----------------------------------------------------
+ Progress Bar Small
+-------------------------------------------------------- */
+.progress-small {
+  position: relative;
+  width: 100%;
+  background-color: #EEE;
+}
+.progress-small.cssProgress-bg {
+  background-color: #bbdefb !important;
+}
+.progress-small.cssProgress-bg-info {
+  background-color: #d1c4e9 !important;
+}
+.progress-small.cssProgress-bg-danger {
+  background-color: #ffcdd2 !important;
+}
+.progress-small.cssProgress-bg-success {
+  background-color: #c8e6c9 !important;
+}
+.progress-small.cssProgress-bg-warning {
+  background-color: #ffecb3 !important;
+}
+.progress-small .cssProgress-bar {
+  display: block;
+  float: none;
+  width: 0%;
+  height: 4px;
+  background: #3798d9;
+}
+.progress-small .cssProgress-bar.cssProgress-lg {
+  height: 6px;
+}
+.progress-small .cssProgress-bar.cssProgress-2x {
+  height: 8px;
+}
+.progress-small .cssProgress-bar.cssProgress-3x {
+  height: 10px;
+}
+.progress-small .cssProgress-bar.cssProgress-4x {
+  height: 12px;
+}
+.progress-small .cssProgress-bar.cssProgress-5x {
+  height: 14px;
+}
+.progress-small .cssProgress-bar.cssProgress-glow {
+  box-shadow: 5px 0px 15px 0px #3798D9;
+}
+.progress-small .cssProgress-bar.cssProgress-glow.cssProgress-info {
+  box-shadow: 5px 0px 15px 0px #9575cd;
+}
+.progress-small .cssProgress-bar.cssProgress-glow.cssProgress-danger {
+  box-shadow: 5px 0px 15px 0px #ef5350;
+}
+.progress-small .cssProgress-bar.cssProgress-glow.cssProgress-success {
+  box-shadow: 5px 0px 15px 0px #66bb6a;
+}
+.progress-small .cssProgress-bar.cssProgress-glow.cssProgress-warning {
+  box-shadow: 5px 0px 15px 0px #ffb74d;
+}
+.progress-small .cssProgress-bar.cssProgress-glow-active {
+  -webkit-animation: cssProgressGlowActive1 3s linear infinite;
+  animation: cssProgressGlowActive1 3s linear infinite;
+}
+.progress-small .cssProgress-bar.cssProgress-glow-active.cssProgress-info {
+  -webkit-animation: cssProgressGlowActive2 3s linear infinite;
+  animation: cssProgressGlowActive2 3s linear infinite;
+}
+.progress-small .cssProgress-bar.cssProgress-glow-active.cssProgress-danger {
+  -webkit-animation: cssProgressGlowActive3 3s linear infinite;
+  animation: cssProgressGlowActive3 3s linear infinite;
+}
+.progress-small .cssProgress-bar.cssProgress-glow-active.cssProgress-success {
+  -webkit-animation: cssProgressGlowActive4 3s linear infinite;
+  animation: cssProgressGlowActive4 3s linear infinite;
+}
+.progress-small .cssProgress-bar.cssProgress-glow-active.cssProgress-warning {
+  -webkit-animation: cssProgressGlowActive5 3s linear infinite;
+  animation: cssProgressGlowActive5 3s linear infinite;
+}
+
+/* -----------------------------------------------------
+ Progress Bar 5
+-------------------------------------------------------- */
+.progress-medium {
+  width: auto !important;
+  padding: 4px;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+.progress-medium .cssProgress-bar {
+  height: 16px;
+  border-radius: 8px;
+}
+.progress-medium .cssProgress-label {
+  line-height: 16px;
+}
