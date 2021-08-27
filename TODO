@@ -1,0 +1,22 @@
+v1 TODO
+[ ] SQLite backend
+    [x] Install sqlite3 bindings.
+    [x] Create, and update a database from irb
+    [x] Design a database format -- we need to support derivations, derives + tasks, typed blobs, seeds. Support only one crawl + 1 machine
+    [ ] Create and update that database format from sinatra--just a CRUD editor
+    [ ] Add datetimes everywhere
+[ ] Add support to run derivations of any kind based on types
+[ ] Add some pre-made, hardcoded action derivations (probably thunks)
+[ ] Add a task queue [but still use only 1 machine]
+[ ] Write a model crawl using only hardcoded actions
+[ ] Add tests and debugging methods
+[ ] Show real-time view of task queue
+    [ ] Fetch current list of tasks
+    [ ] Update progress on each task
+    [ ] Update list of tasks in realtime (ideally not polling)
+[ ] Show real-time view of download progress
+    [ ] Add 'completion' status for a blob + all derivations
+[ ] Add HTTP fetch and cache (in DB)
+[ ] Add derivations in JS
+    [ ] Add support for JS language execution in ruby. Test in irb
+    [ ] Add support to run a JS derivation 

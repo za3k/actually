@@ -21,4 +21,20 @@ class Backend < Sinatra::Base
             status: ["done", "notstarted", "error", "paused", "active", "retry-active", "invalid"].sample
         }.to_json
 	end
+
+    get '/tasks' do
+
+    end
+
+    get '/tasks/:task_id' do
+
+    end
+
+    post '/tasks' do
+
+    end
+
+    put '/tasks/:task_id' do
+
+    end
 end
