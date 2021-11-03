@@ -12,29 +12,41 @@ class Backend < Sinatra::Base
     end
 
     get '/' do
-        
+        # Right now we show ongoing tasks -- dervivation followed by derive tasks underneath
+        send_file File.expand_path('html/index.html', settings.public_folder)
     end
-
-	get '/status/:task' do
-		{
-            percentDone: rand(0..100),
-            status: ["done", "notstarted", "error", "paused", "active", "retry-active", "invalid"].sample
-        }.to_json
-	end
 
     get '/tasks' do
+        send_file File.expand_path('html/tasks.html', settings.public_folder)
+    end
+
+    TASK_TIME = 10
+    STATUSES = ["done", "notstarted", "error", "paused", "active", "retry-active", "invalid"]
+	get '/api/tasks/:task/status' do
+        time = Time.now.to_i
+        task_id = params['task'].to_i
+		{
+            percentDone: ((time % TASK_TIME).to_f / TASK_TIME * 100).to_i, # rand(0..100),
+            status: STATUSES[(time.div(TASK_TIME) + task_id) % STATUSES.length],
+        }.to_json
+	end
+    
+    get '/api/tasks' do
+        time = Time.now.to_i
+        {
+            tasks: (1..10).to_a.select{ |num| time.div(TASK_TIME) % num == 0 }
+        }.to_json
+    end
+
+    get '/api/tasks/:task_id' do
 
     end
 
-    get '/tasks/:task_id' do
+    post '/api/tasks' do
 
     end
 
-    post '/tasks' do
-
-    end
-
-    put '/tasks/:task_id' do
+    put '/api/tasks/:task_id' do
 
     end
 end

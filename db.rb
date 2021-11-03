@@ -40,7 +40,7 @@ def create_schema(db)
     );
     SQL
     db.execute <<-SQL
-    CREATE TABLE derivation_progress (
+    CREATE TABLE derive_progress (
         immediate_done BOOLEAN NOT NULL,
         source_datum_id INTEGER NOT NULL,
         derivation_id INTEGER NOT NULL,
@@ -57,7 +57,7 @@ def create_schema(db)
     );
     SQL
     db.execute <<-SQL
-    -- Before derivation is done for a particular blob+derivation type, there will be 1 'derives', with no derived_blob. after, there may be 1 or more results--no output is represented by a row with NULL derived_blob. 'status' should be used to distinguish these 2 cases.
+    -- Before derivation is done for a particular blob+derivation type, there will be 1 'derives', with no derived_blob. after, there may be 0 or more results--no output is represented by a row with NULL derived_blob. 'status' should be used to distinguish these 2 cases. One DB row is used per result if there are multiple results.
     CREATE TABLE derives (
         source_datum_id INTEGER NOT NULL,
         derived_datum_id INTEGER,
@@ -73,15 +73,17 @@ def create_schema(db)
     db.execute <<-SQL
     CREATE TABLE tasks (
         task_id INTEGER PRIMARY_KEY,
+        parent_task_id INTEGER,
         derivation_id INTEGER,
+        source_datum_id INTEGER NOT NULL,
         status INTEGER, -- One of NOT_STARTED, IN_PROGESS, ERROR, DONE
         progress REAL, -- Percentage between 0 and 1
         attempts INTEGER,
-        claimed BOOLEAN
+        claimed BOOLEAN,
+        FOREIGN KEY(parent_task_id) references tasks
     );
     SQL
 end
 
 db = SQLite3::Database.new "test.db"
 create_schema db
-
