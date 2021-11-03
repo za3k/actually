@@ -12,11 +12,11 @@ class Backend < Sinatra::Base
     end
 
     get '/' do
-        # Right now we show ongoing tasks -- dervivation followed by derive tasks underneath
-        send_file File.expand_path('html/index.html', settings.public_folder)
+        redirect "/tasks"
     end
 
     get '/tasks' do
+        # Right now we show ongoing tasks -- dervivation followed by derive tasks underneath
         send_file File.expand_path('html/tasks.html', settings.public_folder)
     end
 
@@ -33,9 +33,7 @@ class Backend < Sinatra::Base
     
     get '/api/tasks' do
         time = Time.now.to_i
-        {
-            tasks: (1..10).to_a.select{ |num| time.div(TASK_TIME) % num == 0 }
-        }.to_json
+        (1..10).to_a.select{ |num| time.div(TASK_TIME) % num == 0 }.to_json
     end
 
     get '/api/tasks/:task_id' do

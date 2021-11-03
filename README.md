@@ -2,7 +2,7 @@ Actually is a crawling framework meant to actually do something to help you craw
 
 Try it out with:
     bundle install
-    rackup [config.ru]
+    rackup
 And visit http://localhost:9292
 
 Thanks to:
