@@ -37,6 +37,7 @@ class Backend < Sinatra::Base
     end
 
     get '/api/tasks/:task_id' do
+        
 
     end
 
